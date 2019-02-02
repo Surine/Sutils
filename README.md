@@ -9,7 +9,7 @@
 **导包：**
 
 ```xml
-使用gradle :  compile 'cn.surine:Sutils:1.0.0'
+ compile 'cn.surine:Sutils:1.0.0'
 ```
 
 **注册 及 配置:**
@@ -51,6 +51,9 @@ Logs.setOpen(false);
   简介 ： 用于弹出Toast
   使用前需注册： Toasts.setContext(getBaseContext());
   也可以不需要注册，而在使用者中传入context
+  
+  使用示例： Toasts.shortShow("xxxx消息");
+  
   ```
 
   
@@ -61,6 +64,9 @@ Logs.setOpen(false);
   简介 ： 用于缓存储存
   使用前先注册：类名.setContext(getBaseContext());
   也可以不需要注册，而在使用者中传入context
+  
+  使用示例：SharedPres.setData("tag","消息");
+  
   ```
 
 
@@ -70,6 +76,8 @@ Logs.setOpen(false);
   简介：日志打印
   使用时不需要注册，但是可以根据是否上线设置日志的显示与否
   Logs.setOpen(false); //false为生产环境，true为开发环境，默认为true
+  
+  使用示例：Logs.d("xxx消息");
   ```
 
 - NetWorks
@@ -84,6 +92,8 @@ Logs.setOpen(false);
        是否wifi连接 true/false
        返回连接状态码 int {1:wifi 2: mobile,3:no connect,4:other}
        返回连接状态码（Android）：具体可查看ConnectivityManager内常量
+  
+  使用示例：NetWorks.getNetWorkStatus();
   
   ```
 
