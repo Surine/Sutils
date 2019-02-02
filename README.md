@@ -9,7 +9,7 @@
 **导包：**
 
 ```xml
-使用gradle
+使用gradle :  compile 'cn.surine:Sutils:1.0.0'
 ```
 
 **注册 及 配置:**
