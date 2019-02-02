@@ -48,7 +48,7 @@ Logs.setOpen(false);
 
 
 
-### 1. 工具包
+### 1. 工具包介绍
 
 - Toasts
 
@@ -103,3 +103,17 @@ Logs.setOpen(false);
   ```
 
   
+### 3. 版本
+
+v1.0.0 更新日志
+       新增Toasts，SharedPres，Logs，NetWorks
+       
+       
+### 4. 个人
+个人网站：https://surine.cn
+个人博客：https://blog.surine.cn
+简书：https://www.jianshu.com/u/5b0517615c4e
+
+
+### 5. LICENSES
+       Apache-2.0
