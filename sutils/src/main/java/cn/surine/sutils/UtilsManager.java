@@ -2,6 +2,9 @@ package cn.surine.sutils;
 
 import android.content.Context;
 
+import static cn.surine.sutils.SutilsConstant.CONTEXT_IS_NULL;
+import static cn.surine.sutils.SutilsConstant.SUTILS_ERROR;
+
 /**
  * Created by Surine on 2019/2/1.
  * 工具集合管理
@@ -17,6 +20,10 @@ public class UtilsManager {
     public static final int LOGS = 3;
     /*网络工具类*/
     public static final int NETWORKS = 4;
+    /*时间工具类*/
+    public static final int TIMES = 5;
+    /*状态栏工具类*/
+    public static final int STATUSBARS = 6;
 
 
     /**
@@ -45,7 +52,7 @@ public class UtilsManager {
      * */
     public static void check(Context context) {
         if(context == null){
-            throw new IllegalArgumentException("Sutils : context is null,you should init this util in your application");
+            throw new IllegalArgumentException(SUTILS_ERROR+CONTEXT_IS_NULL);
         }
     }
 }
