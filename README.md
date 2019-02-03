@@ -13,7 +13,6 @@
 
 **1.导包：**
 
-//TODO：目前还是需要导入MavenUrl，等审核通过可以直接写下面的依赖
 
 ```xml
  compile 'cn.surine:Sutils:1.0.0'
