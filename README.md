@@ -152,7 +152,7 @@ Logs.setOpen(false);
   简介：状态栏工具
   使用时注意， 设置透明状态栏需要[API>=21]，设置状态栏字体颜色需要[API>=23]，设置后，内容布局将延伸至状态栏，部分系统可以设置fitSystem属性，MIUI系统暂无法设置（设置之后会出现问题）
 
-  下列方法，最好在setContentView()方法之前调用，否则会因系统各异而出现相应的问题。
+  下列方法，推荐在setContentView()方法之前调用，否则会因系统各异而出现相应的问题。
 
   API：hideStatusbar //隐藏状态栏
        fullScreenStatusBar //透明状态栏
