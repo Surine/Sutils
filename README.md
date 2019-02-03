@@ -5,6 +5,10 @@
 小白的工具集合,目前是只有几个类在里面，后续慢慢更新。
 鉴于本人还是小白，所以本项目属于自用项目，如果你喜欢也可以支持并使用哦
 
+当前版本：
+- README：V1.0.1
+- Github：V1.0.0
+- Jcenter：V1.0.0
 -----------------------------------------------------------------------------------
 
 ### 0.准备工作
@@ -117,13 +121,61 @@ Logs.setOpen(false);
   使用示例：NetWorks.getNetWorkStatus();
   
   ```
+  
+  ------------------------------------------代码待合并-------------------------------------------
+  
+  - Times
+  
+  ```
+  简介：时间工具
+  使用时不需要任何配置
+  
+  API：getCurrentTime  //获取当前时间，可选format
+       getYearInt   //获取年 int
+       getMothInt  //获取月 int
+       getDayInt  //获取日 int
+       getHour  //获取小时  stirng
+       getMinute  //获取分钟 string
+       getSecond  //获取秒 string
+       unix2LocateTime //时间戳转时间，可选Locate
+       locateTime2unix  //时间转时间戳，可选Locate
+       compareDate //比较时间
+       getMonthChinese //取得某月月份中文
+       getDayChinese //取得某日中文
+       getDateBeforeOrAfter  //取得某天的之前几天或者之后几天
+        
+       
+  使用示例：Times.getCurrentTime(E);     
+  ```
 
+- StatusBars
+
+```
+简介：状态栏工具
+使用时注意， 设置透明状态栏需要[API>=21]，设置状态栏字体颜色需要[API>=23]，设置后，内容布局将延伸至状态栏，部分系统可以设置fitSystem属性，MIUI系统暂无法设置（设置之后会出现问题）
+
+下列方法，最好在setContentView()方法之前调用，否则会因系统各异而出现相应的问题。
+
+API：hideStatusbar //隐藏状态栏
+     fullScreenStatusBar //透明状态栏
+     setStatusBarColor  //状态栏颜色
+     setStatusBarTextColor  //状态栏文字设置为黑/白
+     setStatusBarUI  //综合配置接口，建议直接调用这个，一步配置完成。
+```
+
+ ------------------------------------------代码待合并-------------------------------------------
   
 ### 3. 版本
 
 ```
 v1.0.0 更新日志
-       新增Toasts，SharedPres，Logs，NetWorks
+       新增Toasts[Toast工具]，SharedPres[缓存工具]，Logs[日志工具]，NetWorks[网络工具]
+       
+       
+v1.0.1 更新日志（代码待合并，请稍后）
+       新增StatusBars[状态栏管理]，Times[时间工具]
+       另外有单独分离报错常量出来。
+       
 ```       
        
 ### 4. 个人
