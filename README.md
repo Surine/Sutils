@@ -6,20 +6,20 @@
 鉴于本人还是小白，所以本项目属于自用项目，如果你喜欢也可以支持并使用哦
 
 当前版本：
-- README：V1.0.1  
-- Github：V1.0.0  
-- Jcenter：V1.0.0 
+- README：V1.0.2  
+- Github：V1.0.1  
+- Jcenter：V1.0.1 [依赖版本号可优先参考这个]
 -----------------------------------------------------------------------------------
 
 ### 0.准备工作
 
 可以通过下面的两步来完成配置。
 
-**1.导包：**
+**1.导入依赖：**
 
 
 ```xml
- compile 'cn.surine:Sutils:1.0.0'
+ compile 'cn.surine:Sutils:1.0.1'
 ```
 
 **2.注册 或 配置:**
@@ -160,6 +160,24 @@ Logs.setOpen(false);
        setStatusBarTextColor  //状态栏文字设置为黑/白
        setStatusBarUI  //综合配置接口，建议直接调用这个，一步配置完成。
   ```
+  
+- Vibrates
+  
+  ```
+  简介：震动器工具
+  使用时注意配置context全局初始化，注意添加震动权限，目前大多数手机都具备振动器，所以API内部无判断，但提供对外接口，可自行使用进行判断
+  按照Android振动器使用规定，启动循环震动之后，必须要退出APP或者调用stopVibrate停止震动
+  
+   API：startVibrate // 开始震动 参数：上下文（可选），震动时长
+        setContext  //设置上下文 
+        stopVibrate  //停止震动
+        startVibrate //开始震动 参数：震动规则，重复规则
+        hasVibrator //是否有振动器
+        startVibrate //开始震动（API26） 震动时长，震动强度（0-255）
+        startVibrateWave //波纹震动，可以边改变时长边改变强度 参数：震动规则数组，震动强度数组，重复规则
+        
+   本工具提供详细API：请参考文章：TODO     
+  ```
 
 
   
@@ -170,11 +188,15 @@ v1.0.0 更新日志 2019年2月2日
        新增Toasts[Toast工具]，SharedPres[缓存工具]，Logs[日志工具]，NetWorks[网络工具]
        
        
-v1.0.1 更新日志（代码待合并，请稍后）
+v1.0.1 更新日志 
        新增StatusBars[状态栏管理]，Times[时间工具]
        另外有单独分离报错常量出来，
        新增部分工具类部分方法使用Demo
        
+       
+v1.0.2 更新日志 2019年2月9日
+       新增Vibrates[震动管理器]
+       修改SharedPres[缓存工具]缓存文件名权限
 ```       
        
 ### 4. 个人
