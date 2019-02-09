@@ -176,7 +176,8 @@ Logs.setOpen(false);
         startVibrate //开始震动（API26） 震动时长，震动强度（0-255）
         startVibrateWave //波纹震动，可以边改变时长边改变强度 参数：震动规则数组，震动强度数组，重复规则
         
-   本工具提供详细API：请参考文章：[Vibrates使用文档](https://blog.surine.cn/2019/02/09/VibrationEffect-这酥麻-不敢相信/)   
+   本工具提供详细API：请参考文章：
+   https://blog.surine.cn/2019/02/09/VibrationEffect-这酥麻-不敢相信/
   ```
 
 
