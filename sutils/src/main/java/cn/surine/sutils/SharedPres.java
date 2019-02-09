@@ -14,12 +14,13 @@ import static cn.surine.sutils.UtilsManager.check;
  *          Add. 是否包含某键
  *          Add. 清除全部数据
  *          Add. 清除某键值对
- *
+ * v 1.0.1 : 更新
+ *          Mod. 修改默认文件名为私有
  */
 
 public class SharedPres {
     /*默认文件名*/
-    public static final String NORMAL_NAME = "data";
+    private static final String NORMAL_NAME = "data";
     /*上下文*/
     private static Context mContext;
 

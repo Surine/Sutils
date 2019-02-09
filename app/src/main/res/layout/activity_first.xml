@@ -66,4 +66,12 @@
         android:layout_alignStart="@+id/button13"
         android:layout_below="@+id/button13"
         android:text="StatusBars" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button12"
+        android:layout_below="@+id/button14"
+        android:text="Vibrates" />
 </RelativeLayout>

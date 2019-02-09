@@ -24,6 +24,8 @@ public class UtilsManager {
     public static final int TIMES = 5;
     /*状态栏工具类*/
     public static final int STATUSBARS = 6;
+    /*震动工具类*/
+    public static final int VIBRATES = 7;
 
 
     /**
@@ -34,6 +36,7 @@ public class UtilsManager {
         SharedPres.setContext(context);
         Toasts.setContext(context);
         NetWorks.setContext(context);
+        Vibrates.setContext(context);
     }
 
 

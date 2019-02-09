@@ -15,6 +15,7 @@ import cn.surine.sutils.NetWorks;
 import cn.surine.sutils.SharedPres;
 import cn.surine.sutils.StatusBars;
 import cn.surine.sutils.Toasts;
+import cn.surine.sutils.Vibrates;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -30,6 +31,8 @@ public class FirstActivity extends AppCompatActivity {
     Button button13;
     @BindView(R.id.button14)
     Button button14;
+    @BindView(R.id.button15)
+    Button button15;
     private Context mContext;
 
     @Override
@@ -42,7 +45,8 @@ public class FirstActivity extends AppCompatActivity {
 
     @OnClick({R.id.button9, R.id.button10,
             R.id.button11, R.id.button12,
-            R.id.button13,R.id.button14})
+            R.id.button13, R.id.button14,
+    R.id.button15})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.button9:
@@ -64,7 +68,10 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(new Intent(mContext, MainActivity.class));
                 break;
             case R.id.button14:
-                StatusBars.setStatusBarUI(FirstActivity.this,true);
+                StatusBars.setStatusBarUI(FirstActivity.this, true);
+                break;
+            case R.id.button15:
+                startActivity(new Intent(mContext, VibratesActivity.class));
                 break;
         }
     }
