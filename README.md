@@ -13,7 +13,7 @@
 
 ### 0.准备工作
 
-可以通过下面的两步来完成配置。
+依次进行下面的操作来实现初始化。
 
 **1.导入依赖：**
 
@@ -22,21 +22,34 @@
  compile 'cn.surine:Sutils:1.0.1'
 ```
 
-**2.注册 或 配置:**
+**2.全局注册：**
 
-首先要区分哪种需要配置，哪种不需要，比如说需要上下文的Toast等，需要设置开发或正式环境的Log等，根据你的需要设置，每个工具类都会有各自的介绍，使用时，需得根据对应的说明进行使用，若需要Context的工具类无法取得Context，则会抛出异常，请关注[UtilsManager](https://github.com/Surine/Sutils/blob/master/sutils/src/main/java/cn/surine/sutils/UtilsManager.java)里的check方法
+在项目中自定义Application，然后在Application的onCreate()方法中调用初始化方法进行初始化
+详情参考本项目中的[SuApplication.java](https://github.com/Surine/Sutils/blob/master/app/src/main/java/cn/surine/sutilsapp/SuApplication.java),注意自定义Application的用法，别忘了在清单文件中填写Application Name，如果你不清楚，请自行查阅 Android自定义Application相关。
 
-但是对于设置上下文的工具类，有两种方式
 
-第一种可以一下子全部设置
-
+初始化方法
 ```java
- //初始化工具包
-  UtilsManager.initContext(getBaseContext());
+ UtilsManager.initContext(getBaseContext());
 ```
 
-这个方法可以配置工具包中的所有工具类的上下文，一劳永逸。
+**3.开始使用**
 
+这样就可以开始使用工具类啦。
+如下面弹出一个Toast
+
+```java
+ Toasts.shortShow("xxxx消息");
+```
+
+
+
+**其他注意项目**
+
+要区分哪种需要配置，哪种不需要，比如说需要上下文的Toast等，需要设置开发或正式环境的Log等，根据你的需要设置，每个工具类都会有各自的介绍，使用时，需得根据对应的说明进行使用，若需要Context的工具类无法取得Context，则会抛出异常，请关注[UtilsManager](https://github.com/Surine/Sutils/blob/master/sutils/src/main/java/cn/surine/sutils/UtilsManager.java)里的check方法
+
+
+上面2中提到的全局初始化
 当然你也可以单独设置，举例：
 
 ```java
