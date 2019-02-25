@@ -60,4 +60,6 @@ public class Toasts {
     public static void longShow(String msg){
         longShow(mContext,msg);
     }
+
+
 }
