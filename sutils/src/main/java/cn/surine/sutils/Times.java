@@ -9,6 +9,7 @@ import java.util.Locale;
 
 import static cn.surine.sutils.SutilsConstant.MONTH_OUT_OF_BOUNDS;
 import static cn.surine.sutils.SutilsConstant.PARSE_ERROR;
+import static cn.surine.sutils.SutilsConstant.PRECISE_ERROR;
 import static cn.surine.sutils.SutilsConstant.SUTILS_ERROR;
 
 /**
@@ -22,6 +23,10 @@ import static cn.surine.sutils.SutilsConstant.SUTILS_ERROR;
  *        Add. 时间比较
  *        Add. 获取一个时间的前几天或者后几天
  *        Add. 获取月份或日期中文
+ * v1.0.1 更新
+ *        BUG. 修复获取时间前后几天会出现时间异常的问题，更新了相应方法
+ *        ADD. 新增获取某一个时间的某个部分
+ *        UP.  部分方法的异常返回值修改为传入值
  */
 
 public class Times {
@@ -233,28 +238,48 @@ public class Times {
 
     /**
      * 获取一个时间的前几天或者后几天
-     * @param date 时间字符串
+     * @param dateString 时间字符串
      * @param format 格式
      * @param number 几天？
      * @param isAfter 前几天还是后几天 true 为后，false为前
      * @return 处理后时间字符串
      * */
-    public static String getDateBeforeOrAfter(String date,String format,int number,boolean isAfter){
-        SimpleDateFormat sd = new SimpleDateFormat(format);
+    public static String getDateBeforeOrAfter(String dateString,String format,int number,boolean isAfter){
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        Date date = null;
+        Date date1 = null;
         try {
-            long dateNumber = sd.parse(date).getTime();
-            if(isAfter) {
-                //向后运算
-                long dateResult = dateNumber + number * (1000 * 60 * 60 * 24);
-                return sd.format(dateResult);
-            }else{
-                long dateResult = dateNumber - number * (1000 * 60 * 60 * 24);
-                return sd.format(dateResult);
-            }
+            date = sdf.parse(dateString);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            // 正数表示该日期后n天，负数表示该日期的前n天
+            calendar.add(Calendar.DATE, isAfter ? number :( -1 * number));
+            date1 = calendar.getTime();
+            return sdf.format(date1);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return SUTILS_ERROR+PARSE_ERROR;
+       return dateString;
     }
 
+
+    /**
+     * 通过时间字符串解析时间值
+     * @param dateString 时间字符串
+     * @param pattern1 时间字符串所满足的格式
+     * @param pattern2 要获取的部分的格式
+     * 使用时注意精度损失
+     * */
+    public static String getStringByTimeString(String dateString,String pattern1,String pattern2){
+        SimpleDateFormat format = new SimpleDateFormat(pattern1);
+        SimpleDateFormat formatResult = new SimpleDateFormat(pattern2);//设置日期格式
+        Date date;
+        try {
+            date = format.parse(dateString);
+            return formatResult.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return dateString;
+    }
 }

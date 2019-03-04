@@ -87,4 +87,12 @@
         android:layout_toEndOf="@+id/button7"
         android:text="前后几天" />
 
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button5"
+        android:layout_below="@+id/button5"
+        android:text="获取时间字符串" />
+
 </RelativeLayout>
