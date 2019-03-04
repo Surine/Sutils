@@ -7,36 +7,49 @@
 
 当前版本：
 - README：V1.0.2  
-- Github：V1.0.1  
-- Jcenter：V1.0.1 [依赖版本号可优先参考这个]
+- Github：V1.0.2  
+- Jcenter：V1.0.2 [依赖版本号可优先参考这个]
 -----------------------------------------------------------------------------------
 
 ### 0.准备工作
 
-可以通过下面的两步来完成配置。
+依次进行下面的操作来实现初始化。
 
 **1.导入依赖：**
 
 
 ```xml
- compile 'cn.surine:Sutils:1.0.1'
+ compile 'cn.surine:Sutils:1.0.2'
 ```
 
-**2.注册 或 配置:**
+**2.全局注册：**
 
-首先要区分哪种需要配置，哪种不需要，比如说需要上下文的Toast等，需要设置开发或正式环境的Log等，根据你的需要设置，每个工具类都会有各自的介绍，使用时，需得根据对应的说明进行使用，若需要Context的工具类无法取得Context，则会抛出异常，请关注[UtilsManager](https://github.com/Surine/Sutils/blob/master/sutils/src/main/java/cn/surine/sutils/UtilsManager.java)里的check方法
+在项目中自定义Application，然后在Application的onCreate()方法中调用初始化方法进行初始化
+详情参考本项目中的[SuApplication.java](https://github.com/Surine/Sutils/blob/master/app/src/main/java/cn/surine/sutilsapp/SuApplication.java),注意自定义Application的用法，别忘了在清单文件中填写Application Name，如果你不清楚，请自行查阅 Android自定义Application相关。
 
-但是对于设置上下文的工具类，有两种方式
 
-第一种可以一下子全部设置
+初始化方法
+```java
+ UtilsManager.initContext(getBaseContext());
+```
+
+**3.开始使用**
+
+这样就可以开始使用工具类啦。
+如下面弹出一个Toast
 
 ```java
- //初始化工具包
-  UtilsManager.initContext(getBaseContext());
+ Toasts.shortShow("xxxx消息");
 ```
 
-这个方法可以配置工具包中的所有工具类的上下文，一劳永逸。
 
+
+**其他注意项目**
+
+要区分哪种需要配置，哪种不需要，比如说需要上下文的Toast等，需要设置开发或正式环境的Log等，根据你的需要设置，每个工具类都会有各自的介绍，使用时，需得根据对应的说明进行使用，若需要Context的工具类无法取得Context，则会抛出异常，请关注[UtilsManager](https://github.com/Surine/Sutils/blob/master/sutils/src/main/java/cn/surine/sutils/UtilsManager.java)里的check方法
+
+
+上面2中提到的全局初始化
 当然你也可以单独设置，举例：
 
 ```java
@@ -141,6 +154,7 @@ Logs.setOpen(false);
        getMonthChinese //取得某月月份中文
        getDayChinese //取得某日中文
        getDateBeforeOrAfter  //取得某天的之前几天或者之后几天
+       getStringByTimeString //根据规则，获取某个时间字符串中的某部分
         
        
   使用示例：Times.getCurrentTime(E);     
@@ -176,7 +190,8 @@ Logs.setOpen(false);
         startVibrate //开始震动（API26） 震动时长，震动强度（0-255）
         startVibrateWave //波纹震动，可以边改变时长边改变强度 参数：震动规则数组，震动强度数组，重复规则
         
-   本工具提供详细API：请参考文章：TODO     
+   本工具提供详细API：请参考文章：
+   https://blog.surine.cn/2019/02/09/VibrationEffect-这酥麻-不敢相信/
   ```
 
 
@@ -197,6 +212,8 @@ v1.0.1 更新日志
 v1.0.2 更新日志 2019年2月9日
        新增Vibrates[震动管理器]
        修改SharedPres[缓存工具]缓存文件名权限
+       增加NetWorks类读取网络权限注解
+       修改Times类中的部分方法，增加部分方法
 ```       
        
 ### 4. 个人
