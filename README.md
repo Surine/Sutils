@@ -8,7 +8,7 @@
 当前版本：
 - README：V1.0.2  
 - Github：V1.0.2  
-- Jcenter：V1.0.1 [依赖版本号可优先参考这个]
+- Jcenter：V1.0.2 [依赖版本号可优先参考这个]
 -----------------------------------------------------------------------------------
 
 ### 0.准备工作
@@ -19,7 +19,7 @@
 
 
 ```xml
- compile 'cn.surine:Sutils:1.0.1'
+ compile 'cn.surine:Sutils:1.0.2'
 ```
 
 **2.全局注册：**
@@ -154,6 +154,7 @@ Logs.setOpen(false);
        getMonthChinese //取得某月月份中文
        getDayChinese //取得某日中文
        getDateBeforeOrAfter  //取得某天的之前几天或者之后几天
+       getStringByTimeString //根据规则，获取某个时间字符串中的某部分
         
        
   使用示例：Times.getCurrentTime(E);     
@@ -212,6 +213,7 @@ v1.0.2 更新日志 2019年2月9日
        新增Vibrates[震动管理器]
        修改SharedPres[缓存工具]缓存文件名权限
        增加NetWorks类读取网络权限注解
+       修改Times类中的部分方法，增加部分方法
 ```       
        
 ### 4. 个人
